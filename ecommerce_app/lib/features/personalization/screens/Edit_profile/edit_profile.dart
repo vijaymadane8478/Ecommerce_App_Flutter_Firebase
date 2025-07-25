@@ -5,8 +5,10 @@ import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ecommerce_app/features/personalization/controllers/user_controller.dart';
 import 'package:ecommerce_app/features/personalization/screens/Edit_profile/widgets/userdetailsrow.dart';
 import 'package:ecommerce_app/features/personalization/screens/Edit_profile/widgets/userprofilewithediticon.dart';
+import 'package:ecommerce_app/features/personalization/screens/changename/change_name.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
@@ -44,7 +46,7 @@ class EditProfileScreen extends StatelessWidget {
               UserDetailRow(
                 title: 'Name',
                 value: controller.user.value.fullName,
-                onTap: () {},
+                onTap: () => Get.to(() => ChangeNameScreen()),
               ),
               UserDetailRow(
                 title: 'UserName',
@@ -89,7 +91,7 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: USizes.spaceBtwItems),
 
               TextButton(
-                onPressed: () {},
+                onPressed: () => controller.deletAccountWarningPopup(),
                 child: Text(
                   "Close Account",
                   style: TextStyle(color: Colors.red),

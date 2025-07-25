@@ -17,7 +17,10 @@ class UserRepository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
 
-  ///FUnction to store user Data
+  //[Store]Funcation for store Data
+  ///[Read]
+  //
+  //
   Future<void> saveUserRecord(UserModel user) async {
     try {
       await _db
@@ -53,6 +56,46 @@ class UserRepository extends GetxController {
         return user;
       }
       return UserModel.empty();
+    } on FirebaseAuthException catch (e) {
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (e) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw Exception("Something went wrong, Please try Again");
+    }
+  }
+
+  //[Update]Funcation for update user Data
+  ///[update]
+  //
+  //
+  Future<void> updateSingleFields(Map<String, dynamic> map) async {
+    try {
+      await _db
+          .collection(UKeys.userCollection)
+          .doc(AuthenticationRepository.instance.currentUser!.uid)
+          .update(map);
+    } on FirebaseAuthException catch (e) {
+      throw UFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw UFirebaseException(e.code).message;
+    } on FormatException catch (e) {
+      throw UFormatException();
+    } on PlatformException catch (e) {
+      throw UPlatformException(e.code).message;
+    } catch (e) {
+      throw Exception("Something went wrong, Please try Again");
+    }
+  }
+
+  //delete user record
+  Future<void> removeUserRecord(String id) async {
+    try {
+      await _db.collection(UKeys.userCollection).doc(id).delete();
     } on FirebaseAuthException catch (e) {
       throw UFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
