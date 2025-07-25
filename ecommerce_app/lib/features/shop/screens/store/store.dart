@@ -9,10 +9,8 @@ import 'package:ecommerce_app/features/shop/screens/store/widgets/storeprimaryhe
 
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 
-import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -21,7 +19,6 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //dark light
 
-    final dark = UHelperFUnctions.inDarkMode(context);
     return DefaultTabController(
       length: 5,
       child: Scaffold(

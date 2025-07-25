@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/common/style/padding.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/rounded_container.dart';
 import 'package:ecommerce_app/common/widgets/images/circular_image.dart';
 import 'package:ecommerce_app/common/widgets/texts/brandtittlewithverifyicon.dart';

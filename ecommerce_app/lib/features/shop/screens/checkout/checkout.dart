@@ -9,10 +9,10 @@ import 'package:ecommerce_app/features/shop/screens/cart/widgets/cart_items.dart
 import 'package:ecommerce_app/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:ecommerce_app/features/shop/screens/checkout/widgets/billing_payment_section.dart';
 import 'package:ecommerce_app/navigation_menu.dart';
-import 'package:ecommerce_app/utilits/constants/colors.dart';
+
 import 'package:ecommerce_app/utilits/constants/images.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
-import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,6 @@ class CheckOutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = UHelperFUnctions.inDarkMode(context);
     return Scaffold(
       //....[Appar].......
       appBar: UAppBar(

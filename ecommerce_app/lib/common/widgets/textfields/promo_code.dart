@@ -38,7 +38,6 @@ class UPromoCodeField extends StatelessWidget {
             width: 80,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Apply"),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.grey.withValues(alpha: 0.2),
                 foregroundColor:
@@ -47,6 +46,7 @@ class UPromoCodeField extends StatelessWidget {
                         : UColors.dark.withValues(alpha: 0.5),
                 side: BorderSide(color: Colors.grey.withValues(alpha: 0.1)),
               ),
+              child: Text("Apply"),
             ),
           ),
         ],

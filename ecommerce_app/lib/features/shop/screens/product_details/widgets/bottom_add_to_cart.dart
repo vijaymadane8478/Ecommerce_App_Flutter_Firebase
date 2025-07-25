@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/common/widgets/buttons/elevated_button.dart';
 import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
 import 'package:ecommerce_app/utilits/constants/colors.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';

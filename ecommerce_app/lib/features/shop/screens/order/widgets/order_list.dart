@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/common/widgets/custom_shapes/circular_container.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/rounded_container.dart';
 import 'package:ecommerce_app/utilits/constants/colors.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';

@@ -12,7 +12,6 @@ import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UProductCardVertical extends StatelessWidget {

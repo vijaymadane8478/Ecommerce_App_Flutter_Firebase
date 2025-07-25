@@ -1,19 +1,19 @@
 import 'package:ecommerce_app/common/style/padding.dart';
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
-import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
-import 'package:ecommerce_app/common/widgets/images/user_profile_logo.dart';
+
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/personalization/controllers/user_controller.dart';
 import 'package:ecommerce_app/features/personalization/screens/Edit_profile/widgets/userdetailsrow.dart';
 import 'package:ecommerce_app/features/personalization/screens/Edit_profile/widgets/userprofilewithediticon.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: UAppBar(
         showBackArrow: true,
@@ -41,10 +41,14 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: USizes.spaceBtwItems),
 
               //ACCOUNT DETAILS
-              UserDetailRow(title: 'Name', value: "Unkown Pro", onTap: () {}),
+              UserDetailRow(
+                title: 'Name',
+                value: controller.user.value.fullName,
+                onTap: () {},
+              ),
               UserDetailRow(
                 title: 'UserName',
-                value: "unkownpro@gmail.com",
+                value: controller.user.value.username,
                 onTap: () {},
               ),
 
@@ -61,13 +65,21 @@ class EditProfileScreen extends StatelessWidget {
 
               SizedBox(height: USizes.spaceBtwItems),
               //Profile settings
-              UserDetailRow(title: 'User ID', value: "312312", onTap: () {}),
               UserDetailRow(
-                title: 'Email',
-                value: "unkownpro@gmail.com",
+                title: 'User ID',
+                value: controller.user.value.id,
                 onTap: () {},
               ),
-              UserDetailRow(title: 'Phone Number', value: "Male", onTap: () {}),
+              UserDetailRow(
+                title: 'Email',
+                value: controller.user.value.email,
+                onTap: () {},
+              ),
+              UserDetailRow(
+                title: 'Phone Number',
+                value: '+91 ${controller.user.value.phoneNumber}',
+                onTap: () {},
+              ),
               UserDetailRow(title: 'Gender', value: "Male", onTap: () {}),
 
               SizedBox(height: USizes.spaceBtwItems),

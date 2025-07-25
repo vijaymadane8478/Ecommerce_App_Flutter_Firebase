@@ -2,11 +2,10 @@ import 'package:ecommerce_app/utilits/constants/colors.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:ecommerce_app/utilits/helpers/device_helpers.dart';
 import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
-import 'package:flutter/cupertino.dart'
-    show PreferredSizeWidget, StatelessWidget, Widget;
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:iconsax/iconsax.dart';
 
 class UAppBar extends StatelessWidget implements PreferredSizeWidget {

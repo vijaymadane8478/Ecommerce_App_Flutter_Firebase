@@ -1,24 +1,17 @@
 import 'package:ecommerce_app/common/style/padding.dart';
-import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
+
 import 'package:ecommerce_app/common/widgets/buttons/elevated_button.dart';
-import 'package:ecommerce_app/common/widgets/custom_shapes/rounded_container.dart';
-import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
-import 'package:ecommerce_app/common/widgets/images/circular_image.dart';
-import 'package:ecommerce_app/common/widgets/images/rounded_images.dart';
-import 'package:ecommerce_app/common/widgets/texts/brandtittlewithverifyicon.dart';
-import 'package:ecommerce_app/common/widgets/texts/product_price.dart';
-import 'package:ecommerce_app/common/widgets/texts/product_titlle.dart';
+
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/product_thumnail_slider.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/productmetadata.dart';
 import 'package:ecommerce_app/features/shop/screens/product_details/widgets/products_attributes.dart';
-import 'package:ecommerce_app/utilits/constants/colors.dart';
-import 'package:ecommerce_app/utilits/constants/images.dart';
+
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
-import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
+
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+
 import 'package:readmore/readmore.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -26,7 +19,6 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = UHelperFUnctions.inDarkMode(context);
     return Scaffold(
       //..............BODY............
       body: SingleChildScrollView(

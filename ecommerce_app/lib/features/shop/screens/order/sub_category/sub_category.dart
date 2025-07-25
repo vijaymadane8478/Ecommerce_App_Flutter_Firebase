@@ -1,23 +1,19 @@
 import 'package:ecommerce_app/common/style/padding.dart';
 import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
-import 'package:ecommerce_app/common/widgets/custom_shapes/rounded_container.dart';
-import 'package:ecommerce_app/common/widgets/icons/circular_icon.dart';
-import 'package:ecommerce_app/common/widgets/images/rounded_images.dart';
+
 import 'package:ecommerce_app/common/widgets/products/prouct_cards/product_card_horizantal.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
-import 'package:ecommerce_app/utilits/constants/colors.dart';
-import 'package:ecommerce_app/utilits/constants/images.dart';
+
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
-import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
+
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class SubCategoryScreen extends StatelessWidget {
   const SubCategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark = UHelperFUnctions.inDarkMode(context);
+    //final dark = UHelperFUnctions.inDarkMode(context);
     return Scaffold(
       appBar: UAppBar(
         showBackArrow: true,

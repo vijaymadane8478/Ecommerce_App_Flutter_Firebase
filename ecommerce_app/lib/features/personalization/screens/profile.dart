@@ -1,12 +1,11 @@
-import 'package:ecommerce_app/common/widgets/custom_shapes/primary_headercontainer.dart';
-import 'package:ecommerce_app/common/widgets/images/circular_image.dart';
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/data/repositories/authentication_repository.dart';
 import 'package:ecommerce_app/features/personalization/screens/widgets/profileprimaryheader.dart';
 import 'package:ecommerce_app/features/personalization/screens/widgets/setting_menu_tile.dart';
 import 'package:ecommerce_app/features/personalization/screens/widgets/userprofiletile.dart';
 import 'package:ecommerce_app/features/shop/screens/address/address.dart';
 import 'package:ecommerce_app/features/shop/screens/order/order.dart';
-import 'package:ecommerce_app/utilits/constants/images.dart';
+
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: AuthenticationRepository.instance.logout,
                       child: Text("Logout"),
                     ),
                   ),

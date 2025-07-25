@@ -14,7 +14,6 @@ import 'package:ecommerce_app/utilits/constants/sizes.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
