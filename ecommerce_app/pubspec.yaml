@@ -8,9 +8,12 @@ environment:
 
 #------[PACKAGES]---------
 dependencies:
+  cached_network_image: ^3.4.1
   carousel_slider: ^5.1.1
   cloud_firestore: ^5.6.11
   connectivity_plus: ^6.1.4
+  crypto: ^3.0.6
+  dio: ^5.8.0+1
   firebase_auth: ^5.6.2
   firebase_core: ^3.15.1
   flutter:
@@ -23,7 +26,9 @@ dependencies:
   google_sign_in: ^5.4.4 
   
   iconsax: ^0.0.8
+  image_picker: ^1.1.2
   lottie: ^3.3.1
+  path_provider: ^2.1.5
   readmore: ^3.0.0
   shared_preferences: ^2.5.3
   shimmer: ^3.0.0

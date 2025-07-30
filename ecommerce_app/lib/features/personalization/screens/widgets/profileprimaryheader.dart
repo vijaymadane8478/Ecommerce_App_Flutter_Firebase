@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/common/widgets/custom_shapes/primary_headercontainer.dart';
 
 import 'package:ecommerce_app/common/widgets/images/user_profile_logo.dart';
+import 'package:ecommerce_app/features/personalization/screens/Edit_profile/widgets/userprofilewithediticon.dart';
 
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class UProfilePrimaryHeader extends StatelessWidget {
           bottom: 0,
           left: 0,
           right: 0,
-          child: Center(child: UserProfileLogo()),
+          child: Center(child: UserProfilewithEditIcon()),
         ),
       ],
     );

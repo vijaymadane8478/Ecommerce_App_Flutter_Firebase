@@ -1,6 +1,13 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto/crypto.dart';
 import 'package:ecommerce_app/data/repositories/authentication_repository.dart';
+import 'package:ecommerce_app/data/services/cloudinary_services.dart';
 import 'package:ecommerce_app/features/authentication/models/user_models.dart';
+import 'package:ecommerce_app/utilits/constants/apis.dart';
 import 'package:ecommerce_app/utilits/constants/keys.dart';
 import 'package:ecommerce_app/utilits/exceptions/firebase_auth_exceptions.dart';
 import 'package:ecommerce_app/utilits/exceptions/firebase_exceptions.dart';
@@ -9,6 +16,7 @@ import 'package:ecommerce_app/utilits/exceptions/platform_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:dio/dio.dart' as dio;
 
 class UserRepository extends GetxController {
   static UserRepository get instace => Get.find();
@@ -16,6 +24,7 @@ class UserRepository extends GetxController {
   //variables
 
   final _db = FirebaseFirestore.instance;
+  final _cloudinaryServics = Get.put(CloudinaryServices());
 
   //[Store]Funcation for store Data
   ///[Read]
@@ -106,6 +115,32 @@ class UserRepository extends GetxController {
       throw UPlatformException(e.code).message;
     } catch (e) {
       throw Exception("Something went wrong, Please try Again");
+    }
+  }
+
+  //[UPLOad Image] - FUNCTION TO UPLOAD Image.
+  Future<dio.Response> uploadImage(File image) async {
+    try {
+      dio.Response response = await _cloudinaryServics.uploadImage(
+        image,
+        UKeys.profileFolder,
+      );
+
+      return response;
+    } catch (e, st) {
+      log("Cloudinary upload error: $e\n$st");
+      throw 'Failed to upload profile picture..please try again';
+    }
+  }
+
+  //DELETE  Image ---function
+  Future<dio.Response> deleteProfilePicture(String publicId) async {
+    try {
+      dio.Response response = await _cloudinaryServics.deleteImage(publicId);
+      return response;
+    } catch (e, st) {
+      log("Cloudinary delete error: $e\n$st");
+      throw 'Something went wrong..please try again';
     }
   }
 }

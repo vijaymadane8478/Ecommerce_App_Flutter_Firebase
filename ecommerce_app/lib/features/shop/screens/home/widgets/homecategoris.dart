@@ -1,4 +1,7 @@
 import 'package:ecommerce_app/common/widgets/image_texts/vertical_image_text.dart';
+import 'package:ecommerce_app/common/widgets/shimmer/category_shimmer.dart';
+import 'package:ecommerce_app/features/shop/controllers/category/category_controller.dart';
+import 'package:ecommerce_app/features/shop/models/category_model.dart';
 import 'package:ecommerce_app/features/shop/screens/order/sub_category/sub_category.dart';
 import 'package:ecommerce_app/utilits/constants/colors.dart';
 import 'package:ecommerce_app/utilits/constants/images.dart';
@@ -12,6 +15,8 @@ class UHomeCategoris extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //controller
+    final controller = Get.put(CategoryController());
     return Padding(
       padding: EdgeInsets.only(left: USizes.defaultSpace),
       child: Column(
@@ -27,23 +32,37 @@ class UHomeCategoris extends StatelessWidget {
           SizedBox(height: USizes.spaceBtwItems),
 
           //list
-          SizedBox(
-            height: 80,
-            child: ListView.separated(
-              separatorBuilder:
-                  (context, index) => SizedBox(width: USizes.spaceBtwItems),
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return UverticalImageText(
-                  title: 'Sports Categories',
-                  textcolor: UColors.white,
-                  image: UImages.sportsIcon,
-                  onTap: () => Get.to(() => SubCategoryScreen()),
-                );
-              },
-            ),
-          ),
+          Obx(() {
+            final categories = controller.featureCategoris;
+
+            //[Loading state]
+            if (controller.isCategoriesLoading.value) {
+              return UCategoryShimmer(itemCount: 6);
+            }
+            //[Empty]
+            if (categories.isEmpty) {
+              return Text("Categoris Not Foune");
+            }
+            //[Data found]
+            return SizedBox(
+              height: 80,
+              child: ListView.separated(
+                separatorBuilder:
+                    (context, index) => SizedBox(width: USizes.spaceBtwItems),
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  CategoryModel category = categories[index];
+                  return UverticalImageText(
+                    title: category.name,
+                    image: category.image,
+                    textcolor: UColors.white,
+                    onTap: () => Get.to(() => SubCategoryScreen()),
+                  );
+                },
+              ),
+            );
+          }),
         ],
       ),
     );

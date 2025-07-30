@@ -48,7 +48,10 @@ class URoundedImage extends StatelessWidget {
                   : BorderRadius.zero,
           child: Image(
             image:
-                isNetworkImage ? NetworkImage(imageUrl) : AssetImage(imageUrl),
+                isNetworkImage
+                    ? NetworkImage(imageUrl) as ImageProvider
+                    : AssetImage(imageUrl) as ImageProvider,
+
             fit: fit,
           ),
         ),

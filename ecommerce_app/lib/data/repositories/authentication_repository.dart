@@ -1,9 +1,13 @@
 import 'dart:developer';
 
+import 'package:ecommerce_app/data/repositories/banner/banner_repository.dart';
+import 'package:ecommerce_app/data/repositories/category/category_repository.dart';
 import 'package:ecommerce_app/data/repositories/user/user_repository.dart';
+import 'package:ecommerce_app/dummy_data.dart';
 import 'package:ecommerce_app/features/authentication/screens/login/loign.dart';
 import 'package:ecommerce_app/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:ecommerce_app/features/authentication/screens/signup/verify_email.dart';
+import 'package:ecommerce_app/features/personalization/controllers/user_controller.dart';
 import 'package:ecommerce_app/navigation_menu.dart';
 import 'package:ecommerce_app/utilits/exceptions/firebase_auth_exceptions.dart';
 import 'package:ecommerce_app/utilits/exceptions/firebase_exceptions.dart';
@@ -27,6 +31,11 @@ class AuthenticationRepository extends GetxController {
   void onReady() {
     FlutterNativeSplash.remove();
     screenredirect();
+
+    ///upload category 1st time only
+    // Get.put(CategoryRepository()).uploadCategories(UDummyData.categories);
+    ///upload banner 1st time only
+    //Get.put(BannerRepository().uploadBanner(UDummyData.banner));
   }
 
   Future<void> screenredirect() async {
@@ -205,6 +214,12 @@ class AuthenticationRepository extends GetxController {
   Future<void> deleteAccount() async {
     try {
       await UserRepository.instace.removeUserRecord(currentUser!.uid);
+
+      //Remove Profile Picture From Cloudinary
+      String publicid = UserController.instance.user.value.publicId;
+      if (publicid.isNotEmpty) {
+        UserRepository.instace.deleteProfilePicture(publicid);
+      }
       await _auth.currentUser?.delete();
     } on FirebaseAuthException catch (e) {
       throw UFirebaseAuthException(e.code).message;

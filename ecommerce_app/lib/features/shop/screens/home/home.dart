@@ -57,15 +57,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //bannner sliding
-                  UpromoSlider(
-                    banners: [
-                      UImages.homeBanner1,
-                      UImages.homeBanner2,
-                      UImages.homeBanner3,
-                      UImages.homeBanner4,
-                      UImages.homeBanner5,
-                    ],
-                  ),
+                  UpromoSlider(),
                   SizedBox(height: USizes.spaceBtwSections),
 
                   USectionHeading(

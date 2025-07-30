@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/shop/controllers/banner/banner_controller.dart';
 import 'package:ecommerce_app/features/shop/controllers/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,13 +10,16 @@ class BannersDotNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //controller getx wala
-    final controller = HomeController.instance;
-    //controller
+
+    final bannercontroller = Get.put(BannerController());
+
     return Obx(
       () => SmoothPageIndicator(
-        count: 5,
+        count: bannercontroller.banners.length,
         effect: ExpandingDotsEffect(dotHeight: 10.0),
-        controller: PageController(initialPage: controller.currentIndex.value),
+        controller: PageController(
+          initialPage: bannercontroller.currentIndex.value,
+        ),
       ),
     );
   }

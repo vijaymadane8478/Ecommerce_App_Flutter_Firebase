@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/common/widgets/custom_shapes/circular_container.dart';
+import 'package:ecommerce_app/common/widgets/images/circular_image.dart';
 import 'package:ecommerce_app/utilits/constants/colors.dart';
 import 'package:ecommerce_app/utilits/constants/sizes.dart';
 import 'package:ecommerce_app/utilits/helpers/helper_function.dart';
@@ -27,17 +28,11 @@ class UverticalImageText extends StatelessWidget {
       child: Column(
         children: [
           //Circula Image
-          UcircularContainer(
+          UCircularImage(
+            image: image,
             height: 56,
             width: 56,
-            backgroundcolor:
-                backgroundColor ?? (dark ? UColors.dark : UColors.light),
-            padding: EdgeInsets.all(USizes.sm),
-            child: Image(
-              image: AssetImage(image),
-              fit: BoxFit.cover,
-              //color: dark ? UColors.light : UColors.dark,
-            ),
+            isNetworkImage: true,
           ),
           SizedBox(height: USizes.spaceBtwItems / 2),
           //Title
